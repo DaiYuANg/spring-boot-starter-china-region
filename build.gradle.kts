@@ -28,18 +28,17 @@ dependencies {
     val junitVersion: String by project
     val testContainersVersion: String by project
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("com.google.code.gson:gson:${gsonVersion}")
     implementation("org.jetbrains:annotations:${jetbrainsAnnotationsVersion}")
     implementation("cn.hutool:hutool-all:${hutoolVersion}")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("org.mapstruct:mapstruct:${mapstructVersion}")
+    implementation("com.google.guava:guava:${guavaVersion}")
+    compileOnly("org.springframework.boot:spring-boot-starter-data-redis")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-data-redis")
-    implementation("org.mapstruct:mapstruct:${mapstructVersion}")
-    implementation("com.google.guava:guava:${guavaVersion}")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
     testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
@@ -68,6 +67,9 @@ tasks {
 
     withType<JavaCompile> {
         dependsOn("processResources")
+    }
+    test {
+        useJUnitPlatform()
     }
 }
 
@@ -98,3 +100,4 @@ java {
         languageVersion.set(JavaLanguageVersion.of(jdkVersion))
     }
 }
+

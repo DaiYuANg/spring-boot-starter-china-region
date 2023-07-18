@@ -7,7 +7,7 @@ import org.daiyuang.framework.spring.boot.starter.china.region.functional.AreasF
 import org.daiyuang.framework.spring.boot.starter.china.region.functional.CitiesFunctional;
 import org.daiyuang.framework.spring.boot.starter.china.region.functional.ProvincesFunctional;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -37,7 +37,7 @@ public class ChinaRegionAutoConfiguration {
     }
 
     @Bean
-    @ConditionalOnClass({RedisAutoConfiguration.class, RedisTemplate.class})
+    @ConditionalOnBean({RedisAutoConfiguration.class, RedisTemplate.class})
     public RedisTemplate<String, RegionPojo> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         val template = new RedisTemplate<String, RegionPojo>();
         template.setConnectionFactory(redisConnectionFactory);

@@ -1,13 +1,10 @@
 package org.daiyuang.framework.spring.boot.starter.china.region.base;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import jakarta.annotation.PostConstruct;
 import lombok.SneakyThrows;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.Resource;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;

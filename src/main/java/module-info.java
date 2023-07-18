@@ -5,7 +5,6 @@ module toolkit4J.frameworks.spring.spring.boot.starter.china.region {
     requires spring.core;
     requires org.mapstruct;
     requires spring.boot.autoconfigure;
-    requires com.google.gson;
     requires spring.boot;
     requires jakarta.annotation;
     requires org.slf4j;
