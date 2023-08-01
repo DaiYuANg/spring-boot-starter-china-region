@@ -9,5 +9,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ToString
 public class ChinaRegionConfigurationProperties {
 
-    boolean enableProvinces = true;
+    String year = "2023";
 }

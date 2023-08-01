@@ -20,7 +20,6 @@ the<DependencyManagementExtension>().apply {
 }
 
 dependencies {
-    val gsonVersion: String by project
     val mapstructVersion: String by project
     val guavaVersion: String by project
     val jetbrainsAnnotationsVersion: String by project
@@ -30,16 +29,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains:annotations:${jetbrainsAnnotationsVersion}")
     implementation("cn.hutool:hutool-all:${hutoolVersion}")
-    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.mapstruct:mapstruct:${mapstructVersion}")
-    implementation("com.google.guava:guava:${guavaVersion}")
-    compileOnly("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    testImplementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-data-redis")
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation(platform("org.junit:junit-bom:${junitVersion}"))
     testImplementation("org.junit.jupiter:junit-jupiter:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
